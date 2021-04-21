@@ -1,6 +1,6 @@
 # The Interplay of Compile-time and Run-time Options for Performance Prediction
 
-This repository accompany an SPLC submission.
+This is the companion repository of the SPLC'21 48th submission.
 
 Measurements and details about the performances can be consulted in the data folder.
 
