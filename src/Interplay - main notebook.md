@@ -41,6 +41,9 @@ from sklearn.linear_model import LinearRegression, ElasticNet
 from sklearn.model_selection import train_test_split
 # Simple clustering (iterative steps)
 from sklearn.cluster import KMeans
+# get interactions of features
+from sklearn.preprocessing import PolynomialFeatures
+
 
 # we use it to interact with the file system
 import os
@@ -621,6 +624,18 @@ stats.wilcoxon(listDim[1], listDim[11])
 
 
 
+
+```python
+stats.wilcoxon(listDim[4], listDim[8])
+```
+
+
+
+
+    WilcoxonResult(statistic=20.0, pvalue=1.2380795614564472e-05)
+
+
+
 runtime dist of compile-time options 1 and 11 are significantly different 
 
 # RQ1.2
@@ -1058,61 +1073,61 @@ plot_correlationmatrix_dendogram("nodejs", "ops")
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_48_0.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_49_0.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_48_1.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_49_1.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_48_2.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_49_2.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_48_3.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_49_3.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_48_4.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_49_4.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_48_5.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_49_5.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_48_6.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_49_6.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_48_7.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_49_7.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_48_8.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_49_8.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_48_9.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_49_9.png)
     
 
 
@@ -1292,7 +1307,7 @@ np.mean(corr[29][8])
 
 
 
-### Binary tree
+### Binary trees
 
 
 ```python
@@ -1358,61 +1373,61 @@ for i in range(len(inputs_name["nodejs"])):
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_60_0.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_61_0.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_60_1.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_61_1.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_60_2.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_61_2.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_60_3.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_61_3.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_60_4.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_61_4.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_60_5.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_61_5.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_60_6.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_61_6.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_60_7.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_61_7.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_60_8.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_61_8.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_60_9.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_61_9.png)
     
 
 
@@ -1435,13 +1450,13 @@ def show_imp(ns, input_index, dim, col_names, color):
     
     plt.figure(figsize = (20,10))
     plt.grid()
-    plt.ylabel("Random Forest importance (%)", size = 20)
-    plt.yticks(size=15)
+    plt.ylabel("Random Forest importance (%)", size = 25)
+    plt.yticks(size=25)
     plt.bar(range(len(res_imp.values)), 100*res_imp, color= color)
     if col_names:
-        plt.xticks(range(len(res_imp.values)), col_names, rotation=45, size =15)
+        plt.xticks(range(len(res_imp.values)), col_names, rotation=45, size =25)
     else:
-        plt.xticks(range(len(res_imp.values)), res_imp.index, rotation=45, size =15)
+        plt.xticks(range(len(res_imp.values)), res_imp.index, rotation=45, size =25)
     plt.savefig("../results/"+ns+"/rf_input_"+str(input_index+1)+"_"+dim+".png")
     plt.show()
 ```
@@ -1464,62 +1479,218 @@ for i in range(len(inputs_name["nodejs"])):
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_63_0.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_64_0.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_63_1.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_64_1.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_63_2.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_64_2.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_63_3.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_64_3.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_63_4.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_64_4.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_63_5.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_64_5.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_63_6.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_64_6.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_63_7.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_64_7.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_63_8.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_64_8.png)
     
 
 
 
     
-![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_63_9.png)
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_64_9.png)
     
+
+
+## With the feature interactions
+
+
+```python
+def show_imp_interact(ns, input_index, dim):
+    
+    res_df = aggregate_data(ns, input_index, dim)
+
+    y = res_df[dim]
+    X = res_df.drop([dim], axis=1)
+    
+    poly = PolynomialFeatures(degree = 2, interaction_only = False, include_bias = True)
+    X_interact = pd.DataFrame(np.array(poly.fit_transform(X), int))
+
+    rf = RandomForestRegressor()
+    rf.fit(X_interact,y)
+    
+    names_interactions = [str(1)]
+
+    xs = X.columns
+
+    for f in xs:
+        names_interactions.append(f)
+
+    for i in range(len(xs)):
+        first_f = xs[i]
+        for j in range(len(xs)):
+            sec_f = xs[j]
+            if i ==j:
+                names_interactions.append(first_f+"^2")
+            else:
+                if i <j:
+                    names_interactions.append(first_f+" "+sec_f)
+    
+    names = poly.get_feature_names()
+    
+    res_imp = pd.Series(rf.feature_importances_, names_interactions)
+    res_imp
+    
+    plt.figure(figsize = (20,10))
+    plt.grid()
+    plt.ylabel("Random Forest importance (%)", size = 25)
+    plt.yticks(size=25)
+    plt.bar(range(len(res_imp.values)), 100*res_imp)
+    plt.xticks(range(len(res_imp.values)), res_imp.index, rotation=45, size =10)
+    plt.savefig("../results/"+ns+"/rf_imp_interact_input_"+str(input_index+1)+"_"+dim+".png")
+    plt.show()
+    
+    return res_imp
+```
+
+
+```python
+res_interact = dict()
+for i in range(len(inputs_name["nodejs"])):
+    res_interact[i+1]= show_imp_interact("nodejs", i, "ops")
+```
+
+
+    
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_67_0.png)
+    
+
+
+
+    
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_67_1.png)
+    
+
+
+
+    
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_67_2.png)
+    
+
+
+
+    
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_67_3.png)
+    
+
+
+
+    
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_67_4.png)
+    
+
+
+
+    
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_67_5.png)
+    
+
+
+
+    
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_67_6.png)
+    
+
+
+
+    
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_67_7.png)
+    
+
+
+
+    
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_67_8.png)
+    
+
+
+
+    
+![png](Interplay%20-%20main%20notebook_files/Interplay%20-%20main%20notebook_67_9.png)
+    
+
+
+
+```python
+
+```
+
+
+```python
+res_interact[10].sort_values(ascending=True)[150:]
+```
+
+
+
+
+    --openssl-no-asm^2                                                     0.002490
+    --openssl-no-asm --enable-static                                       0.002661
+    --fully-static --openssl-no-asm                                        0.003632
+    --openssl-no-asm --without-node-code-cache                             0.003647
+    --openssl-no-asm --experimental-enable-pointer-compression             0.003784
+    --fully-static^2                                                       0.006488
+    --openssl-no-asm --without-intl                                        0.008587
+    --fully-static                                                         0.008701
+    --cross-compiling --without-node-snapshot                              0.015842
+    --experimental-enable-pointer-compression --without-node-code-cache    0.016322
+    --experimental-enable-pointer-compression --without-intl               0.019613
+    --fully-static --without-node-code-cache                               0.020388
+    --cross-compiling --openssl-no-asm                                     0.021074
+    --fully-static --without-intl                                          0.021758
+    --fully-static --enable-lto                                            0.047891
+    --v8-lite-mode                                                         0.076349
+    --v8-lite-mode^2                                                       0.079904
+    --fully-static --openssl-is-fips                                       0.128219
+    --cross-compiling --fully-static                                       0.145251
+    jitless                                                                0.155593
+    jitless^2                                                              0.174376
+    dtype: float64
+
 
 
 
@@ -1536,7 +1707,7 @@ dim = "ops"
 
 res_rq22 = dict()
 
-#learning rates
+# learning rates
 lrs = [0.01, 0.05, 0.1]
 
 for input_index in range(len(inputs_name[ns])):

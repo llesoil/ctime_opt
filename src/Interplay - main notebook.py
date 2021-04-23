@@ -7,7 +7,7 @@
 
 # #### First, we import some libraries
 
-# In[43]:
+# In[28]:
 
 
 # for arrays
@@ -45,6 +45,9 @@ from sklearn.linear_model import LinearRegression, ElasticNet
 from sklearn.model_selection import train_test_split
 # Simple clustering (iterative steps)
 from sklearn.cluster import KMeans
+# get interactions of features
+from sklearn.preprocessing import PolynomialFeatures
+
 
 # we use it to interact with the file system
 import os
@@ -99,7 +102,7 @@ for ns in name_systems:
 
 # #### Figure 2a
 
-# In[91]:
+# In[3]:
 
 
 ns ="x264"
@@ -139,7 +142,7 @@ plt.savefig("../results/boxplot_"+ns+"_"+dim+".png")
 plt.show()
 
 
-# In[93]:
+# In[4]:
 
 
 count_fail = 0
@@ -154,19 +157,19 @@ for i in range(len(listDim)):
 print(count_fail/(len(listDim)**2-len(listDim))*100, "% failures")
 
 
-# In[4]:
+# In[5]:
 
 
 np.mean([np.percentile(distr,75)-np.percentile(distr,25) for distr in transposed_listDim])
 
 
-# In[5]:
+# In[6]:
 
 
 np.mean(transposed_listDim)
 
 
-# In[74]:
+# In[7]:
 
 
 ns ="xz"
@@ -185,13 +188,13 @@ for i in range(len(listDim[0])):
 np.mean([np.percentile(distr,75)-np.percentile(distr,25) for distr in transposed_listDim])
 
 
-# In[7]:
+# In[8]:
 
 
 np.mean(transposed_listDim)
 
 
-# In[77]:
+# In[9]:
 
 
 ns ="poppler"
@@ -210,7 +213,7 @@ for i in range(len(listDim[0])):
 np.mean([np.percentile(distr,75)-np.percentile(distr,25) for distr in transposed_listDim])
 
 
-# In[78]:
+# In[10]:
 
 
 np.mean(transposed_listDim)
@@ -218,7 +221,7 @@ np.mean(transposed_listDim)
 
 # #### Figure 2b
 
-# In[98]:
+# In[11]:
 
 
 ns ="xz"
@@ -256,13 +259,13 @@ plt.savefig("../results/boxplot_"+ns+"_"+dim+".png")
 plt.show()
 
 
-# In[103]:
+# In[12]:
 
 
 stats.wilcoxon(listDim[3], listDim[10])
 
 
-# In[11]:
+# In[13]:
 
 
 ns ="poppler"
@@ -281,13 +284,13 @@ for i in range(len(listDim[0])):
 np.mean([np.percentile(distr,75)-np.percentile(distr,25) for distr in transposed_listDim])
 
 
-# In[12]:
+# In[14]:
 
 
 np.mean(transposed_listDim)
 
 
-# In[13]:
+# In[15]:
 
 
 ns ="xz"
@@ -306,7 +309,7 @@ for i in range(len(listDim[0])):
 [np.percentile(distr,75)-np.percentile(distr,25) for distr in transposed_listDim][7]
 
 
-# In[14]:
+# In[16]:
 
 
 np.mean(transposed_listDim)
@@ -314,7 +317,7 @@ np.mean(transposed_listDim)
 
 # #### Figure 2c
 
-# In[15]:
+# In[17]:
 
 
 ns ="x264"
@@ -353,13 +356,13 @@ plt.savefig("../results/boxplot_"+ns+"_"+dim+".png")
 plt.show()
 
 
-# In[16]:
+# In[18]:
 
 
 [np.percentile(distr,75)-np.percentile(distr,25) for distr in transposed_listDim][100:130]
 
 
-# In[17]:
+# In[19]:
 
 
 [np.mean(distr) for distr in transposed_listDim][100:130]
@@ -367,7 +370,7 @@ plt.show()
 
 # #### Figure 2d
 
-# In[45]:
+# In[20]:
 
 
 ns ="nodejs"
@@ -406,19 +409,19 @@ plt.savefig("../results/boxplot_"+ns+"_"+dim+".png")
 plt.show()
 
 
-# In[46]:
+# In[21]:
 
 
 np.mean([np.percentile(distr,75)-np.percentile(distr,25) for distr in transposed_listDim])
 
 
-# In[47]:
+# In[22]:
 
 
 np.mean(transposed_listDim)
 
 
-# In[48]:
+# In[23]:
 
 
 stats.wilcoxon(listDim[1], listDim[3])
@@ -426,10 +429,16 @@ stats.wilcoxon(listDim[1], listDim[3])
 
 # runtime dist of compile-time options 1 and 3 are not significantly different 
 
-# In[50]:
+# In[24]:
 
 
 stats.wilcoxon(listDim[1], listDim[11])
+
+
+# In[27]:
+
+
+stats.wilcoxon(listDim[4], listDim[8])
 
 
 # runtime dist of compile-time options 1 and 11 are significantly different 
@@ -789,9 +798,9 @@ np.mean(corr[27][13])
 np.mean(corr[29][8])
 
 
-# ### Binary tree
+# ### Binary trees
 
-# In[36]:
+# In[31]:
 
 
 perfs = dict()
@@ -857,7 +866,7 @@ for i in range(len(inputs_name["nodejs"])):
 
 # ### Feature importances
 
-# In[38]:
+# In[109]:
 
 
 def show_imp(ns, input_index, dim, col_names, color):
@@ -875,18 +884,18 @@ def show_imp(ns, input_index, dim, col_names, color):
     
     plt.figure(figsize = (20,10))
     plt.grid()
-    plt.ylabel("Random Forest importance (%)", size = 20)
-    plt.yticks(size=15)
+    plt.ylabel("Random Forest importance (%)", size = 25)
+    plt.yticks(size=25)
     plt.bar(range(len(res_imp.values)), 100*res_imp, color= color)
     if col_names:
-        plt.xticks(range(len(res_imp.values)), col_names, rotation=45, size =15)
+        plt.xticks(range(len(res_imp.values)), col_names, rotation=45, size =25)
     else:
-        plt.xticks(range(len(res_imp.values)), res_imp.index, rotation=45, size =15)
+        plt.xticks(range(len(res_imp.values)), res_imp.index, rotation=45, size =25)
     plt.savefig("../results/"+ns+"/rf_input_"+str(input_index+1)+"_"+dim+".png")
     plt.show()
 
 
-# In[39]:
+# In[110]:
 
 
 col_node = ['--cross-comp', '--fully-static', '--enable-lto',
@@ -901,6 +910,78 @@ color = ["salmon"]*11+["darkgreen"]*6
 
 for i in range(len(inputs_name["nodejs"])):
     show_imp("nodejs", i, "ops", col_node, color)
+
+
+# ## With the feature interactions
+
+# In[64]:
+
+
+def show_imp_interact(ns, input_index, dim):
+    
+    res_df = aggregate_data(ns, input_index, dim)
+
+    y = res_df[dim]
+    X = res_df.drop([dim], axis=1)
+    
+    poly = PolynomialFeatures(degree = 2, interaction_only = False, include_bias = True)
+    X_interact = pd.DataFrame(np.array(poly.fit_transform(X), int))
+
+    rf = RandomForestRegressor()
+    rf.fit(X_interact,y)
+    
+    names_interactions = [str(1)]
+
+    xs = X.columns
+
+    for f in xs:
+        names_interactions.append(f)
+
+    for i in range(len(xs)):
+        first_f = xs[i]
+        for j in range(len(xs)):
+            sec_f = xs[j]
+            if i ==j:
+                names_interactions.append(first_f+"^2")
+            else:
+                if i <j:
+                    names_interactions.append(first_f+" "+sec_f)
+    
+    names = poly.get_feature_names()
+    
+    res_imp = pd.Series(rf.feature_importances_, names_interactions)
+    res_imp
+    
+    plt.figure(figsize = (20,10))
+    plt.grid()
+    plt.ylabel("Random Forest importance (%)", size = 25)
+    plt.yticks(size=25)
+    plt.bar(range(len(res_imp.values)), 100*res_imp)
+    plt.xticks(range(len(res_imp.values)), res_imp.index, rotation=45, size =10)
+    plt.savefig("../results/"+ns+"/rf_imp_interact_input_"+str(input_index+1)+"_"+dim+".png")
+    plt.show()
+    
+    return res_imp
+
+
+# In[67]:
+
+
+res_interact = dict()
+for i in range(len(inputs_name["nodejs"])):
+    res_interact[i+1]= show_imp_interact("nodejs", i, "ops")
+
+
+# In[ ]:
+
+
+
+
+
+# In[96]:
+
+
+res_interact[10].sort_values(ascending=True)[150:]
 
 
 # In[ ]:
@@ -919,7 +1000,7 @@ dim = "ops"
 
 res_rq22 = dict()
 
-#learning rates
+# learning rates
 lrs = [0.01, 0.05, 0.1]
 
 for input_index in range(len(inputs_name[ns])):
