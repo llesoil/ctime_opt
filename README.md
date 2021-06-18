@@ -78,17 +78,19 @@ First, run this container :
 
 `sudo docker run -i -p 8888:8888 anonymicse2021/splc21`
 
-Then, go to the link displayed on your terminal, starting with http://127.0.0.1:8888/?token=
+Then, go to the link displayed on your terminal, starting with http://127.0.0.1:8888/?token= like in the following picture:
 
-It will open a new tab on your web navigator, like this:
+![Rep0](results/others/replication0.png)
+
+It will open a new tab on your web navigator, looking like this:
 
 ![Rep1](results/others/replication1.png)
 
-You can now click on the 'src' directory.
+You can now click on the 'src' directory...
 
 ![Rep2](results/others/replication2.png)
 
-And on the Main notebook, it will open a new tab. Finally, search for "Kernel" -> "Restart and run all", and click, like this :
+... And on the Main notebook, it will open a new tab. Finally, search for "Kernel" -> "Restart and run all", and click, like this :
 
 ![Rep3](results/others/replication3.png)
 
@@ -96,8 +98,46 @@ It will execute all the cells, displaying the different results of the submissio
 
 Check the results of the execution. The second part of the replication is done, you can now kill the process and exit the container.
 
-Thank you for testing our artifact!
+### To go further
 
+If you want to use our artifact to test new measurements, just follow this process:
+
+1. Measurement process
+
+First, you will have to select your software system. Make sure the software system provide compile-time configuration options as well as run-time configuration options (reading the documentation helps to select the influential configuration options).
+
+Select a dataset of input data (c scripts for a compiler like gcc, databases for a DBMS like SQLite, etc.) and measure the performances of the software system for...
+- All inputs
+- All compile-time configurations
+- All run-time configurations
+
+... to obtain measurements following the structure detailed in the README.md of the data directory (each sub-directory for a compile-configuration, each file for an input).
+
+Copy these files in the docker container, in the data directory, with the name "mySoft" (see https://stackoverflow.com/questions/22907231/how-to-copy-files-from-host-to-docker-container).
+
+2. Execute the code
+
+Run the container as above:
+
+`sudo docker run -i -p 8888:8888 anonymicse2021/splc21`
+
+Create a "mySoft" folder in the results directory, as in the following picture : this directory aims at gathering the results for the new software system mySoft.
+
+![Rep4](results/others/replication4.png)
+
+Open the main notebook.
+
+In the second cell of code ([2], after the comment 'Import data') of the Main notebook, modify the second line of code ...
+
+`name_systems = ["x264", "xz", "nodejs", "poppler"]`
+
+by adding "mySoft" in the array. The second line of code should look like this : 
+
+`name_systems = ["x264", "xz", "nodejs", "poppler", "mySoft"]`
+
+Execute the notebook as above, and check the "results/mySoft" directory.
+
+Thank you for testing our artifact!
 
 ## Contact
 
